@@ -1,4 +1,8 @@
-// admin.js
+// Check if the user is logged in
+if (!localStorage.getItem('userLoggedIn')) {
+    // If not logged in, redirect to the login page
+    window.location.href = '../../views/site/login.php';
+}
 
 // Function to handle reservation form submission
 function handleReservationFormSubmit(event) {

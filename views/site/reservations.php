@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Parking Dashboard</title>
     <link rel="stylesheet" href="../../web/css/reservations.css">
-    <script src="../../web/js/reservations.js" defer></script>
-    
 </head>
 <body>
     <div class="dashboard">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="logo">Park-King</div>
+            <img src="../../assets/ParKing (1).png" alt="Park-King Logo" class="logo">
             <ul class="menu">
-                <li class="menu-item active"><a href="reservations.php">Reservations</a></li>
+                <li class="menu-item active"><a href="reservation.php">Reservations</a></li>
                 <li class="menu-item"><a href="parkingslots.php">Parking Slots</a></li>
+                <a href="login.php" class="logout-btn">Log Out</a>
             </ul>
         </aside>
 
@@ -24,6 +23,8 @@
             <header class="content-header">
                 <h1>Admin Parking Dashboard</h1>
                 <p>Manage customer reservations and parking slots efficiently.</p>
+                <!-- Log Out Button -->
+        
             </header>
             <div class="content-body">
                 <!-- Reservation Form -->
@@ -32,7 +33,7 @@
                     <form id="reservation-form">
                         <label for="name">Name:</label>
                         <input type="text" id="name" placeholder="Enter name" required>
-                        
+
                         <label for="plate-number">Plate Number:</label>
                         <input type="text" id="plate-number" placeholder="Enter plate number" required>
 
@@ -47,7 +48,7 @@
                             <option value="B1">B1</option>
                         </select>
 
-                        <button type="submit" class="btn">Reserve Slot</button>
+                        <button type="submit" class="btn">Book Slot</button>
                     </form>
                 </section>
 
@@ -72,5 +73,7 @@
             </div>
         </main>
     </div>
+
+    <script src="../../web/js/reservations.js"></script>
 </body>
 </html>

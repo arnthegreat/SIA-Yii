@@ -1,55 +1,36 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../../web/css/login.css">
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-panel">
+            <h2>Sign In</h2>
+            <form id="login-form">
+                <label for="username">USERNAME</label>
+                <input type="text" id="username" placeholder="Username" required>
 
-/** @var yii\web\View $this */
-/** @var yii\bootstrap5\ActiveForm $form */
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" placeholder="Password" required>
 
-/** @var app\models\LoginForm $model */
-
-use yii\bootstrap5\ActiveForm;
-use yii\bootstrap5\Html;
-
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
-?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please fill out the following fields to login:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-
-            <?php $form = ActiveForm::begin([
-                'id' => 'login-form',
-                'fieldConfig' => [
-                    'template' => "{label}\n{input}\n{error}",
-                    'labelOptions' => ['class' => 'col-lg-1 col-form-label mr-lg-3'],
-                    'inputOptions' => ['class' => 'col-lg-3 form-control'],
-                    'errorOptions' => ['class' => 'col-lg-7 invalid-feedback'],
-                ],
-            ]); ?>
-
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-            <?= $form->field($model, 'password')->passwordInput() ?>
-
-            <?= $form->field($model, 'rememberMe')->checkbox([
-                'template' => "<div class=\"custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            ]) ?>
-
-            <div class="form-group">
-                <div>
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                <div class="options">
+                    <label><input type="checkbox"> Remember Me</label>
+                    <a href="#">Forgot Password</a>
                 </div>
-            </div>
 
-            <?php ActiveForm::end(); ?>
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+        </div>
 
-            <div style="color:#999;">
-                You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-                To modify the username/password, please check out the code <code>app\models\User::$users</code>.
-            </div>
-
+        <div class="welcome-panel">
+            <h1>Welcome to login</h1>
         </div>
     </div>
-</div>
+
+    <script src="../../web/js/login.js"></script>
+</body>
+</html>
