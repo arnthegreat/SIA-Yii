@@ -28,8 +28,6 @@
 
         <div class="welcome-panel">
             <h1>Welcome to login</h1>
-            <p>Don't have an account?</p>
-            <a href="#" class="btn secondary">Sign Up</a>
         </div>
     </div>
 

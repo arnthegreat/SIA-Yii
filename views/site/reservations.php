@@ -14,6 +14,7 @@
             <ul class="menu">
                 <li class="menu-item active"><a href="reservation.php">Reservations</a></li>
                 <li class="menu-item"><a href="parkingslots.php">Parking Slots</a></li>
+                <a href="login.php" class="logout-btn">Log Out</a>
             </ul>
         </aside>
 
@@ -22,6 +23,8 @@
             <header class="content-header">
                 <h1>Admin Parking Dashboard</h1>
                 <p>Manage customer reservations and parking slots efficiently.</p>
+                <!-- Log Out Button -->
+        
             </header>
             <div class="content-body">
                 <!-- Reservation Form -->
