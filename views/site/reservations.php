@@ -10,7 +10,7 @@
     <div class="dashboard">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <img src="../../assets/ParKing.png" alt="Park-King Logo" class="logo"> <!-- Updated this line -->
+            <img src="../../assets/ParKing (1).png" alt="Park-King Logo" class="logo">
             <ul class="menu">
                 <li class="menu-item active"><a href="reservation.php">Reservations</a></li>
                 <li class="menu-item"><a href="parkingslots.php">Parking Slots</a></li>
