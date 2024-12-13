@@ -51,8 +51,11 @@
                     <h2>Booking Details</h2>
                     <div class="details">
                         <p>Selected Slot: <span id="selected-slot">None</span></p>
-                        <p>Rate: <span>$50 per hour</span></p>
-                        <p>Total Amount: <span id="total-amount">$0</span></p>
+                        <p>Name: <span id="costumerName"></span></p>
+                        <p>Plate Number: <span id="costumerPlate"></span></p>
+                        <p>Mobile Number: <span id="costumerNumber"></span></p>
+                        <p>Rate: <span>₱50 per hour</span></p>
+                        <p>Total Amount: <span id="total-amount">₱0</span></p>
                     </div>
                     <button class="btn">Book Slot</button>
                 </section>
