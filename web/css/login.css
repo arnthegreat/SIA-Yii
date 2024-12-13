@@ -1,0 +1,120 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text color */
+}
+
+.login-wrapper {
+    display: flex;
+    width: 900px;
+    height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.login-panel,
+.welcome-panel {
+    padding: 40px;
+    flex: 1;
+}
+
+.login-panel {
+    background-color: #1e1e1e; /* Darker panel background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-panel h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff; /* Light text color */
+}
+
+form label {
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: block;
+    color: #bbb; /* Lighter label color */
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 5px;
+    background-color: #333; /* Dark input background */
+    color: #ffffff; /* Light input text color */
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.options a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #f39c12; /* Keep the accent color */
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, #f39c12, #e67e22);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.social-login {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-login img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.welcome-panel {
+    background: linear-gradient(to right, #f39c12, #e67e22);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.welcome-panel h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.welcome-panel p {
+    margin-bottom: 20px;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border: 1px solid #fff; /* Keep the border white */
+}
