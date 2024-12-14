@@ -3,109 +3,286 @@
 *::before,
 *::after {
     box-sizing: border-box;
-}
-
-body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #121212;
-    color: #f5f5f5;
     padding: 0;
 }
 
-/* Centering the Form */
-.form-container {
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #ddd;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full height of the viewport */
 }
 
-/* Reservation Form */
+/* Layout Container */
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1100px;
+    height: auto;
+    background-color: #1c1c1e;
+    border: 2px solid #444;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Left Section: Form */
 .form-section {
-    background-color: #1e1e1e;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    width: 300px; /* Set a smaller fixed width for the form */
-    min-height: 500px; /* Set a minimum height for the form */
-}
-
-.form-section h2 {
-    color: #f39c12;
-    margin-bottom: 20px;
-    font-size: 24px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-form {
+    flex: 1;
+    padding: 40px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    background-color: #1f1f1f;
+    border-right: 2px solid #333;
+}
+
+h2 {
+    text-align: center;
+    color: #f39c12;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 label {
-    margin: 10px 0 5px;
-    color: #bbb;
-    font-size: 14px;
+    display: block;
+    margin: 12px 0 8px;
+    font-size: 15px;
+    color: #ccc;
+    font-weight: 500;
 }
 
 input,
 select {
+    width: 100%;
     padding: 12px;
-    border-radius: 8px;
-    border: none;
-    background-color: #2e2e2e;
-    color: #f5f5f5;
     margin-bottom: 20px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-input::placeholder {
-    color: #bbb;
-}
-
-select {
-    appearance: none;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #2b2b2b;
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    outline: none;
 }
 
 input:focus,
 select:focus {
-    background-color: #444;
-    outline: none;
+    border-color: #f39c12;
+    box-shadow: 0 0 8px rgba(243, 156, 18, 0.6);
+    background-color: #3b3b3b;
 }
 
-.btn {
-    background-color: #f39c12;
-    border: none;
-    color: #121212;
+/* Payment Method Styles */
+.payment-methods {
+    margin-bottom: 20px;
+}
+
+.payment-methods label {
+    display: block;
+    font-size: 14px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.form-check-input {
+    /* Custom size for the radio button */
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #f39c12; /* Custom border color */
+    background-color: #2b2b2b; /* Dark background */
+    transition: all 0.3s ease;
+}
+
+.form-check-input:checked {
+    background-color: #f39c12; /* Bright color when checked */
+    border-color: #f39c12; /* Border color when checked */
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.4); /* Focus effect */
+}
+
+.form-check-label {
+    font-size: 16px;
+    color: #ddd; /* Lighter text color */
+    font-weight: 500;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.form-check-label:hover {
+    color: #f39c12; /* Change color on hover */
+}
+
+/* Align the radio buttons horizontally */
+.form-check-inline {
+    margin-right: 20px;
+}
+
+/* Align the payment methods labels */
+.payment-methods {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Button Styles */
+button {
     padding: 12px;
     border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
+    border: none;
+    background-color: #f39c12;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
     text-transform: uppercase;
-    font-size: 14px;
-    transition: background-color 0.3s, transform 0.2s ease;
-    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(243, 156, 18, 0.4);
 }
 
-.btn:hover {
+button:hover {
     background-color: #e67e22;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(243, 156, 18, 0.6);
 }
 
-.btn.danger {
-    background-color: #e74c3c;
+.gcash-btn {
+    background-color: #00a4e4;
+    box-shadow: 0 4px 8px rgba(0, 164, 228, 0.4);
 }
 
-.btn.danger:hover {
-    background-color: #c0392b;
+.gcash-btn:hover {
+    background-color: #0077b6;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 164, 228, 0.6);
+}
+
+/* Right Section: Logo and Description */
+.info-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    background-color: #141414;
+}
+
+.logo {
+    width: 500px;
+    height: 500px;
+    background-color:transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f39c12;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 18px;
+    color: #ddd;
+    line-height: 1.6;
+    max-width: 80%;
+    margin-top: 10px;
 }
 
 /* Responsive Design */
-@media (max-width: 480px) {
-    .form-section {
-        width: 90%; /* Make the form responsive on smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
     }
+
+    .form-section {
+        border-right: none;
+        border-bottom: 2px solid #333;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    input,
+    select,
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    z-index: 9999; /* Ensure it's on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
+    justify-content: center;
+    align-items: center;
+    display: none; /* Hidden by default */
+}
+
+.modal-content {
+    background-color:#1c1c1e;
+;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Show the modal */
+.modal.show {
+    display: flex; /* Show the modal when this class is added */
 }

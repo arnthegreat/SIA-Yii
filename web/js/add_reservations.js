@@ -29,9 +29,33 @@ function handleReservationFormSubmit(event) {
   document.getElementById('reservation-form').reset();
 }
 
+// Modal functionality for GCash
+document.addEventListener('DOMContentLoaded', function() {
+  const gcashButton = document.getElementById('gcash-button');
+  const gcashModal = document.getElementById('gcash-modal');
+  const closeModal = document.getElementById('close-modal');
+
+  // Show modal when GCash button is clicked
+  gcashButton.addEventListener('click', function() {
+    gcashModal.classList.add('show'); // Add 'show' class to display the modal
+  });
+
+  // Close modal when the close button is clicked
+  closeModal.addEventListener('click', function() {
+    gcashModal.classList.remove('show'); // Remove 'show' class to hide the modal
+  });
+
+  // Close modal if clicked outside the modal content
+  window.addEventListener('click', function(event) {
+    if (event.target === gcashModal) {
+      gcashModal.classList.remove('show'); // Remove 'show' class if clicked outside
+    }
+  });
+});
+
 // Initialize the page on load
 window.onload = function() {
   if (document.getElementById('reservation-form')) {
-      document.getElementById('reservation-form').addEventListener('submit', handleReservationFormSubmit);
+    document.getElementById('reservation-form').addEventListener('submit', handleReservationFormSubmit);
   }
 };

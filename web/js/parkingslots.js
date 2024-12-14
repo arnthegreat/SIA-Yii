@@ -2,7 +2,7 @@
 
 // Update the parking slots based on reservations
 function updateParkingSlots() {
-    const slots = ['A1', 'A2', 'A3', 'B1'];
+    const slots = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3'];
     const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
     const grid = document.getElementById('slots-grid');
     grid.innerHTML = '';
