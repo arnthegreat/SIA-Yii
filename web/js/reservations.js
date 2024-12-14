@@ -1,28 +1,3 @@
-// Check if the user is logged in
-if (!localStorage.getItem('userLoggedIn')) {
-    // If not logged in, redirect to the login page
-    window.location.href = '../../views/site/login.php';
-}
-
-// Function to handle reservation form submission
-function handleReservationFormSubmit(event) {
-    event.preventDefault();
-
-    const name = document.getElementById('name').value;
-    const plateNumber = document.getElementById('plate-number').value;
-    const phone = document.getElementById('phone').value;
-    const parkingSlot = document.getElementById('parking-slot').value;
-
-    // Store reservation in localStorage
-    let reservations = JSON.parse(localStorage.getItem('reservations')) || [];
-    reservations.push({ name, plateNumber, phone, parkingSlot });
-
-    localStorage.setItem('reservations', JSON.stringify(reservations));
-
-    // Update reservations table
-    updateReservationsTable();
-}
-
 // Update the reservations table
 function updateReservationsTable() {
     const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
@@ -48,16 +23,14 @@ function removeReservation(parkingSlot) {
     reservations = reservations.filter(reservation => reservation.parkingSlot !== parkingSlot);
     localStorage.setItem('reservations', JSON.stringify(reservations));
 
-    // Update parking slots and table
-    updateParkingSlots();
+    // Update reservations table
     updateReservationsTable();
 }
 
 // Initialize the page on load
 window.onload = function() {
-    // If it's admin.html, set up form handler
-    if (document.getElementById('reservation-form')) {
-        document.getElementById('reservation-form').addEventListener('submit', handleReservationFormSubmit);
+    // If it's reservations.php, update reservations table
+    if (document.getElementById('reservations-table')) {
         updateReservationsTable();
     }
 };

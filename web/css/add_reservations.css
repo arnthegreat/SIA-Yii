@@ -1,0 +1,111 @@
+/* General Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #f5f5f5;
+    padding: 0;
+}
+
+/* Centering the Form */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+}
+
+/* Reservation Form */
+.form-section {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 300px; /* Set a smaller fixed width for the form */
+    min-height: 500px; /* Set a minimum height for the form */
+}
+
+.form-section h2 {
+    color: #f39c12;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    color: #bbb;
+    font-size: 14px;
+}
+
+input,
+select {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #2e2e2e;
+    color: #f5f5f5;
+    margin-bottom: 20px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+input::placeholder {
+    color: #bbb;
+}
+
+select {
+    appearance: none;
+}
+
+input:focus,
+select:focus {
+    background-color: #444;
+    outline: none;
+}
+
+.btn {
+    background-color: #f39c12;
+    border: none;
+    color: #121212;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s ease;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #e67e22;
+    transform: translateY(-2px);
+}
+
+.btn.danger {
+    background-color: #e74c3c;
+}
+
+.btn.danger:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .form-section {
+        width: 90%; /* Make the form responsive on smaller screens */
+    }
+}

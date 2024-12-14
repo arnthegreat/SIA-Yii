@@ -57,7 +57,6 @@
                         <p>Rate: <span>₱50 per hour</span></p>
                         <p>Total Amount: <span id="total-amount">₱0</span></p>
                     </div>
-                    <button class="btn">Book Slot</button>
                 </section>
             </div>
         </main>
