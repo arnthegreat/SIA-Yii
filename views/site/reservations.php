@@ -39,7 +39,26 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody  id="reservations-table">
+                        <tbody id="reservations-table">
+                            <!-- Rows will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- VIP Reservations Table -->
+                <section class="table-section">
+                    <h2>VIP Reservations</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Plate Number</th>
+                                <th>Phone</th>
+                                <th>Reserved Slot</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vip-reservations-table">
                             <!-- Rows will be dynamically added here -->
                         </tbody>
                     </table>

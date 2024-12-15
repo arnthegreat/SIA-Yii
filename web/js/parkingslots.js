@@ -24,6 +24,29 @@ function updateParkingSlots() {
     });
 }
 
+function updateVipParkingSlots() {
+    const vipslots = ['V1','V2','V3','V4'];
+    const vipreservations = JSON.parse(localStorage.getItem('vip_reservations')) || [];
+    const grid = document.getElementById('vip-slots-grid');
+    grid.innerHTML = '';
+
+    vipslots.forEach(slot => {
+        const slotElement = document.createElement('div');
+        slotElement.classList.add('slot');
+        slotElement.textContent = slot; 
+
+        const reservedSlot = vipreservations.find(reservation => reservation.parkingSlot === slot);
+        if (reservedSlot) {
+            slotElement.classList.add('reserved');
+            slotElement.onclick = () => displayReservationDetails(reservedSlot);
+        } else {
+            slotElement.classList.add('available');
+        }
+
+        grid.appendChild(slotElement);
+    });
+}
+
 // Function to display reservation details
 function displayReservationDetails(reservation) {
     const detailsSection = document.querySelector('.booking-details .details');
@@ -42,5 +65,6 @@ window.onload = function() {
     // If it's parkingslots.html, update parking slots
     if (document.getElementById('slots-grid')) {
         updateParkingSlots();
+        updateVipParkingSlots();
     }
 };
