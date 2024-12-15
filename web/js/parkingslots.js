@@ -1,5 +1,8 @@
 // parkingslot.js
 
+// Global variable to store the currently selected slot
+let selectedSlotElement = null;
+
 // Update the parking slots based on reservations
 function updateParkingSlots() {
     const slots = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3'];
@@ -10,14 +13,18 @@ function updateParkingSlots() {
     slots.forEach(slot => {
         const slotElement = document.createElement('div');
         slotElement.classList.add('slot');
-        slotElement.textContent = slot; 
+        slotElement.textContent = slot;
 
         const reservedSlot = reservations.find(reservation => reservation.parkingSlot === slot);
         if (reservedSlot) {
             slotElement.classList.add('reserved');
-            slotElement.onclick = () => displayReservationDetails(reservedSlot);
+            if (reservedSlot.status === 'occupied') {
+                slotElement.classList.add('occupied'); // Apply "occupied" status if present
+            }
+            slotElement.onclick = () => displayReservationDetails(reservedSlot, slotElement);
         } else {
             slotElement.classList.add('available');
+            slotElement.onclick = () => displayReservationDetails({ parkingSlot: slot }, slotElement);
         }
 
         grid.appendChild(slotElement);
@@ -33,14 +40,18 @@ function updateVipParkingSlots() {
     vipslots.forEach(slot => {
         const slotElement = document.createElement('div');
         slotElement.classList.add('slot');
-        slotElement.textContent = slot; 
+        slotElement.textContent = slot;
 
         const reservedSlot = vipreservations.find(reservation => reservation.parkingSlot === slot);
         if (reservedSlot) {
             slotElement.classList.add('reserved');
-            slotElement.onclick = () => displayReservationDetails(reservedSlot);
+            if (reservedSlot.status === 'occupied') {
+                slotElement.classList.add('occupied'); // Apply "occupied" status if present
+            }
+            slotElement.onclick = () => displayReservationDetails(reservedSlot, slotElement);
         } else {
             slotElement.classList.add('available');
+            slotElement.onclick = () => displayReservationDetails({ parkingSlot: slot }, slotElement);
         }
 
         grid.appendChild(slotElement);
@@ -48,17 +59,38 @@ function updateVipParkingSlots() {
 }
 
 // Function to display reservation details
-function displayReservationDetails(reservation) {
+function displayReservationDetails(reservation, slotElement) {
     const detailsSection = document.querySelector('.booking-details .details');
-    detailsSection.innerHTML = `
-        <p>Selected Slot: <span id="selected-slot">${reservation.parkingSlot}</span></p>
-        <p>Name: <span>${reservation.name}</span></p>
-        <p>Plate Number: <span>${reservation.plateNumber}</span></p>
-        <p>Phone: <span>${reservation.phone}</span></p>
-        <p>Rate: <span>$50 per hour</span></p>
-        <p>Total Amount: <span id="total-amount">$50</span></p>
-    `;
+    document.getElementById('selected-slot').textContent = reservation.parkingSlot;
+    document.getElementById('costumerName').textContent = reservation.name || 'N/A';
+    document.getElementById('costumerPlate').textContent = reservation.plateNumber || 'N/A';
+    document.getElementById('costumerNumber').textContent = reservation.phone || 'N/A';
+    document.getElementById('total-amount').textContent = "₱50";  // You can adjust the rate calculation as needed.
+
+    // Store the selected slot for later
+    selectedSlotElement = slotElement;
 }
+
+// Function to mark the selected slot as occupied when the button is clicked
+document.getElementById('mark-occupied').onclick = function() {
+    if (selectedSlotElement && !selectedSlotElement.classList.contains('occupied')) {
+        selectedSlotElement.classList.remove('reserved');
+        selectedSlotElement.classList.add('occupied');
+
+        // Optionally, update localStorage or make other updates to reflect this change
+        const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+        const slotId = document.getElementById('selected-slot').textContent;
+        const updatedReservations = reservations.map(res => {
+            if (res.parkingSlot === slotId) {
+                return { ...res, status: 'occupied' };  // Update the status to 'occupied'
+            }
+            return res;
+        });
+
+        // Save the updated reservations back to localStorage
+        localStorage.setItem('reservations', JSON.stringify(updatedReservations));
+    }
+};
 
 // Initialize the page on load
 window.onload = function() {

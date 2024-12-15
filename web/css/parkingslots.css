@@ -258,3 +258,10 @@ body {
         padding: 12px;
     }
 }
+.slot.occupied {
+    background-color: #e74c3c;  /* Red for occupied slots */
+    color: #fff;                /* White text for better visibility */
+}
+
+
+

@@ -9,7 +9,6 @@
 <body>
     <div class="login-wrapper">
         <div class="login-panel">
-            <h2>Sign In</h2>
             <form id="login-form">
                 <label for="username">USERNAME</label>
                 <input type="text" id="username" placeholder="Username" required>
@@ -19,7 +18,6 @@
 
                 <div class="options">
                     <label><input type="checkbox"> Remember Me</label>
-                    <a href="#">Forgot Password</a>
                 </div>
 
                 <button type="submit" class="btn">Sign In</button>
@@ -27,7 +25,7 @@
         </div>
 
         <div class="welcome-panel">
-            <h1>Welcome to login</h1>
+            <h1>WELCOME ADMIN!</h1>
         </div>
     </div>
 

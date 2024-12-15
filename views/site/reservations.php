@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Parking Dashboard</title>
     <link rel="stylesheet" href="../../web/css/reservations.css">
-    
 </head>
 <body>
     <div class="dashboard">
         <!-- Sidebar -->
         <aside class="sidebar">
-        <img src="../../assets/ParKing (1).png" alt="Park-King Logo" class="logo">
+            <img src="../../assets/ParKing (1).png" alt="Park-King Logo" class="logo">
             <ul class="menu">
                 <li class="menu-item active"><a href="reservations.php">Reservations</a></li>
                 <li class="menu-item"><a href="parkingslots.php">Parking Slots</a></li>
-                
             </ul>
+            <!-- Log Out Button -->
+            <a href="login.php" class="logout-btn">Log Out</a>
         </aside>
 
         <!-- Main Content -->
