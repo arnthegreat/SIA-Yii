@@ -13,11 +13,23 @@ function updateReservationsTable() {
             <td>${reservation.plateNumber}</td>
             <td>${reservation.phone}</td>
             <td>${reservation.parkingSlot}</td>
+            <td>${reservation.gcashReferenceNo || 'Cash Only'}</td>
             <td><button class="btn danger" onclick="removeReservation('${reservation.parkingSlot}', 'regular')">Remove</button></td>
         `;
         tableBody.appendChild(row);
     });
 }
+
+// Remove a reservation and update the table
+function removeReservation(parkingSlot) {
+    let reservations = JSON.parse(localStorage.getItem("reservations")) || [];
+    reservations = reservations.filter(reservation => reservation.parkingSlot !== parkingSlot);
+    localStorage.setItem("reservations", JSON.stringify(reservations));
+    updateReservationsTable(); // Refresh the table
+  }
+  
+  
+
 function updateVipReservationsTable() {
     const vipReservations = JSON.parse(localStorage.getItem('vip_reservations')) || [];
     const tableBody = document.getElementById('vip-reservations-table');
@@ -30,23 +42,18 @@ function updateVipReservationsTable() {
             <td>${reservation.plateNumber}</td>
             <td>${reservation.phone}</td>
             <td>${reservation.parkingSlot}</td>
+            <td>${reservation.gcashReferenceNo || 'Cash Only'}</td>
             <td><button class="btn danger" onclick="removeReservation('${reservation.parkingSlot}', 'vip')">Remove</button></td>
         `;
         tableBody.appendChild(row);
     });
 }
-// Remove reservation and free up the slot
-function removeReservation(parkingSlot, type) {
-    let reservations;
-    if (type === 'regular') {
-        reservations = JSON.parse(localStorage.getItem('reservations')) || [];
-        reservations = reservations.filter(reservation => reservation.parkingSlot !== parkingSlot);
-        localStorage.setItem('reservations', JSON.stringify(reservations));
-    } else if (type === 'vip') {
-        reservations = JSON.parse(localStorage.getItem('vip_reservations')) || [];
-        reservations = reservations.filter(reservation => reservation.parkingSlot !== parkingSlot);
-        localStorage.setItem('vip_reservations', JSON.stringify(reservations));
-    }
+// Remove a vip_reservations and update the table
+function removeReservation(parkingSlot) {
+    let vip_reservations = JSON.parse(localStorage.getItem("vip_reservations")) || [];
+    vip_reservations = vip_reservations.filter(reservation => reservation.parkingSlot !== parkingSlot);
+    localStorage.setItem("vip_reservations", JSON.stringify(vip_reservations));
+    updateReservationsTable(); // Refresh the table
 
     // Update the tables
     updateReservationsTable();

@@ -34,9 +34,14 @@
                     <button type="button" class="btn gcash-btn" id="gcash-button">GCash Payment</button>
                     <button type="button" class="btn cash-btn" id="cash-button">Cash Payment</button>
                 </div>
+
+                <!-- Hidden input for GCash Reference Number -->
+                <input type="hidden" id="gcash-reference" name="gcash-reference" value="Cash Payment">
+
                 <button type="submit" class="btn">Add VIP Reservation</button>
             </form>
         </div>
+        
         <!-- Right Section: Logo & Description -->
         <div class="info-section">
             <img src="../../assets/ParKing (1).png" alt="Park-King Logo" class="logo">

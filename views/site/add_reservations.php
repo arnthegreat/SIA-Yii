@@ -40,6 +40,9 @@
                     <button type="button" class="btn cash-btn" id="cash-button">Cash Payment</button>
                 </div>
 
+                <!-- Hidden input for GCash Reference Number -->
+                <input type="hidden" id="gcash-reference" name="gcash-reference" value="Cash Payment">
+
                 <button type="submit" class="btn">Add Reservation</button>
             </form>
         </div>
@@ -56,7 +59,7 @@
 <div id="gcash-modal" class="modal">
     <div class="modal-content">
         <span class="close-btn" id="close-modal">&times;</span>
-        <h3>GCash Payment</h3>
+        <h3>GCash Payment</h3>  
         <img src="../../assets/QR.jpg" alt="GCash QR" class="modal-image">
         <input type="text" placeholder="Enter Reference Number" id="gcash-input" class="modal-input">
         <button class="btn" id="submit-gcash">Submit</button>

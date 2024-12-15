@@ -36,6 +36,7 @@
                                 <th>Plate Number</th>
                                 <th>Phone</th>
                                 <th>Reserved Slot</th>
+                                <th>Gcash Reference No.</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -55,6 +56,7 @@
                                 <th>Plate Number</th>
                                 <th>Phone</th>
                                 <th>Reserved Slot</th>
+                                <th>Gcash Reference No.</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
