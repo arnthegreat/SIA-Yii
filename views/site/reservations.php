@@ -47,7 +47,10 @@
                 </section>
 
                 <!-- VIP Reservations Table -->
-                <section class="table-section">
+            
+            </div>
+            <div class="content-body">
+            <section class="table-section">
                     <h2>VIP Reservations</h2>
                     <table>
                         <thead>
