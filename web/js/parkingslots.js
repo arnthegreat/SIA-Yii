@@ -79,6 +79,7 @@ document.getElementById('mark-occupied').onclick = function() {
 
         // Optionally, update localStorage or make other updates to reflect this change
         const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+        const vipreservations = JSON.parse(localStorage.getItem('vip_reservations')) || [];
         const slotId = document.getElementById('selected-slot').textContent;
         const updatedReservations = reservations.map(res => {
             if (res.parkingSlot === slotId) {
@@ -87,8 +88,16 @@ document.getElementById('mark-occupied').onclick = function() {
             return res;
         });
 
+        const updatedVipReservations = vipreservations.map(res => {
+            if (res.parkingSlot === slotId) {
+                return { ...res, status: 'occupied' };  // Update the status to 'occupied'
+            }
+            return res;
+        });
+
         // Save the updated reservations back to localStorage
         localStorage.setItem('reservations', JSON.stringify(updatedReservations));
+        localStorage.setItem('vip_reservations', JSON.stringify(updatedVipReservations));
     }
 };
 
