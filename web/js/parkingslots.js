@@ -116,7 +116,7 @@ document.getElementById('mark-occupied').onclick = function () {
         });
 
         localStorage.setItem('reservations', JSON.stringify(updatedReservations));
-        localStorage.setItem('vipreservations', JSON.stringify(updatedVipReservations));
+        localStorage.setItem('vip_reservations', JSON.stringify(updatedVipReservations));
 
         // Get the reservation details for the modal
         const reservation = updatedReservations.find(res => res.parkingSlot === slotId) || {};
@@ -129,7 +129,6 @@ window.onclick = function (event) {
     const modal = document.getElementById('receipt-modal');
     if (event.target === modal) {
         modal.style.display = 'none';
-        localStorage.setItem('vip_reservations', JSON.stringify(updatedVipReservations));
     }
 };
 
