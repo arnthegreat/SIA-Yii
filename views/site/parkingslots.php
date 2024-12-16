@@ -27,6 +27,19 @@
                 <h1>Parking Slots</h1>
                 <p>View and manage parking slot availability.</p>
             </header>
+<!-- Add this inside <body>, preferably below your main content -->
+<div id="receipt-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-modal">&times;</span>
+        <h2>Receipt</h2>
+        <p>Parking Slot: <span id="receipt-slot"></span></p>
+        <p>Customer Name: <span id="receipt-name"></span></p>
+        <p>Plate Number: <span id="receipt-plate"></span></p>
+        <p>Mobile Number: <span id="receipt-number"></span></p>
+        <p>Total Amount: <span id="receipt-amount"></span></p>
+        <button id="print-receipt">Print Receipt</button>
+    </div>
+</div>
 
             <div class="content-body">
                 <!-- Parking Slots -->

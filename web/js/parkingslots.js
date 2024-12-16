@@ -1,5 +1,3 @@
-// parkingslot.js
-
 // Global variable to store the currently selected slot
 let selectedSlotElement = null;
 
@@ -32,7 +30,7 @@ function updateParkingSlots() {
 }
 
 function updateVipParkingSlots() {
-    const vipslots = ['V1','V2','V3','V4'];
+    const vipslots = ['V1', 'V2', 'V3', 'V4'];
     const vipreservations = JSON.parse(localStorage.getItem('vip_reservations')) || [];
     const grid = document.getElementById('vip-slots-grid');
     grid.innerHTML = '';
@@ -60,41 +58,73 @@ function updateVipParkingSlots() {
 
 // Function to display reservation details
 function displayReservationDetails(reservation, slotElement) {
-    const detailsSection = document.querySelector('.booking-details .details');
     document.getElementById('selected-slot').textContent = reservation.parkingSlot;
     document.getElementById('costumerName').textContent = reservation.name || 'N/A';
     document.getElementById('costumerPlate').textContent = reservation.plateNumber || 'N/A';
     document.getElementById('costumerNumber').textContent = reservation.phone || 'N/A';
-    document.getElementById('total-amount').textContent = "₱50";  // You can adjust the rate calculation as needed.
+    document.getElementById('total-amount').textContent = "₱50"; // Adjust the rate calculation as needed.
 
     // Store the selected slot for later
     selectedSlotElement = slotElement;
 }
 
+// Show the receipt modal
+function showReceiptModal(reservation) {
+    const modal = document.getElementById('receipt-modal');
+    document.getElementById('receipt-slot').textContent = reservation.parkingSlot || 'N/A';
+    document.getElementById('receipt-name').textContent = reservation.name || 'N/A';
+    document.getElementById('receipt-plate').textContent = reservation.plateNumber || 'N/A';
+    document.getElementById('receipt-number').textContent = reservation.phone || 'N/A';
+    document.getElementById('receipt-amount').textContent = "₱50"; // Adjust if needed
+    modal.style.display = 'flex';
+}
+
+// Hide the receipt modal
+document.getElementById('close-modal').onclick = function () {
+    document.getElementById('receipt-modal').style.display = 'none';
+};
+
+// Print the receipt
+document.getElementById('print-receipt').onclick = function () {
+    window.print(); // This will print the current modal content
+    document.getElementById('receipt-modal').style.display = 'none'; // Close modal after printing
+};
+
 // Function to mark the selected slot as occupied when the button is clicked
-document.getElementById('mark-occupied').onclick = function() {
+document.getElementById('mark-occupied').onclick = function () {
     if (selectedSlotElement && !selectedSlotElement.classList.contains('occupied')) {
         selectedSlotElement.classList.remove('reserved');
         selectedSlotElement.classList.add('occupied');
 
-        // Optionally, update localStorage or make other updates to reflect this change
+        // Update localStorage or reflect the change
         const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
         const slotId = document.getElementById('selected-slot').textContent;
+
         const updatedReservations = reservations.map(res => {
             if (res.parkingSlot === slotId) {
-                return { ...res, status: 'occupied' };  // Update the status to 'occupied'
+                return { ...res, status: 'occupied' }; // Update the status to 'occupied'
             }
             return res;
         });
 
-        // Save the updated reservations back to localStorage
         localStorage.setItem('reservations', JSON.stringify(updatedReservations));
+
+        // Get the reservation details for the modal
+        const reservation = updatedReservations.find(res => res.parkingSlot === slotId) || {};
+        showReceiptModal(reservation);
+    }
+};
+
+// Close modal when clicking outside of it
+window.onclick = function (event) {
+    const modal = document.getElementById('receipt-modal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
     }
 };
 
 // Initialize the page on load
-window.onload = function() {
-    // If it's parkingslots.html, update parking slots
+window.onload = function () {
     if (document.getElementById('slots-grid')) {
         updateParkingSlots();
         updateVipParkingSlots();
